@@ -1,13 +1,13 @@
-import Hero from "../components/home/Hero";
+import Hero from "../components/Home/Hero";
 // import TrustBar from "../components/home/TrustBar";
-import FeaturedTreatments from "../components/home/FeaturedTreatments";
-import DoctorSection from "../components/home/DoctorSection";
-import WhyChooseUs from "../components/home/WhyChooseUs";
-import TechnologySection from "../components/home/TechnologySection";
+import FeaturedTreatments from "../components/Home/FeaturedTreatments";
+import DoctorSection from "../components/Home/DoctorSection";
+import WhyChooseUs from "../components/Home/WhyChooseUs";
+import TechnologySection from "../components/Home/TechnologySection";
 // import BeforeAfterSection from "../components/home/BeforeAfterSection";
-import TestimonialsSection from "../components/home/TestimonialsSection";
-import FAQSection from "../components/home/FAQSection";
-import AppointmentCTA from "../components/home/AppointmentCTA";
+import TestimonialsSection from "../components/Home/TestimonialsSection";
+import FAQSection from "../components/Home/FAQSection";
+import AppointmentCTA from "../components/Home/AppointmentCTA";
 
 const Home = () => {
   return (
