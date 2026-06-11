@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   FaAward,
   FaUserMd,
@@ -253,7 +254,8 @@ const DoctorSection = () => {
 
             <div className="flex flex-wrap gap-4 mt-12">
 
-              <button
+              <Link
+                to="/book-appointment"
                 className="
                   px-8
                   py-4
@@ -269,9 +271,10 @@ const DoctorSection = () => {
                 "
               >
                 Book Consultation
-              </button>
+              </Link>
 
-              <button
+              <Link
+                to="/doctor"
                 className="
                   flex
                   items-center
@@ -291,7 +294,7 @@ const DoctorSection = () => {
               >
                 View Full Profile
                 <FaArrowRight />
-              </button>
+              </Link>
 
             </div>
 

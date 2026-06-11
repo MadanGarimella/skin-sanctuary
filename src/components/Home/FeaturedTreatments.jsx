@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
 import acne from "../../assets/treatments/acne.png";
@@ -199,7 +200,8 @@ const FeaturedTreatments = () => {
                     {item.description}
                   </p>
 
-                  <button
+                  <Link
+                    to="/book-appointment"
                     className="
                       mt-5
                       flex
@@ -221,7 +223,7 @@ const FeaturedTreatments = () => {
                         group-hover:translate-x-1
                       "
                     />
-                  </button>
+                  </Link>
                 </div>
 
               </div>
@@ -240,7 +242,8 @@ const FeaturedTreatments = () => {
           transition={{ delay: 0.4 }}
           className="text-center mt-16"
         >
-          <button
+          <Link
+            to="/treatments"
             className="
               px-8
               py-4
@@ -257,7 +260,7 @@ const FeaturedTreatments = () => {
             "
           >
             View All Treatments
-          </button>
+          </Link>
         </motion.div>
 
       </div>

@@ -1,48 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import {
-  HiOutlineMenuAlt3,
-  HiOutlineX,
-  HiChevronDown,
-} from "react-icons/hi";
+import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
+import { clinic } from "../config/clinic";
 
-const treatmentCategories = [
-  {
-    title: "Skin Treatments",
-    items: [
-      "Acne Treatment",
-      "Acne Scar Treatment",
-      "Pigmentation Treatment",
-      "Chemical Peels",
-      "HydraFacial",
-      "Skin Brightening",
-      "Anti Aging",
-    ],
-  },
-  {
-    title: "Hair Treatments",
-    items: [
-      "PRP Therapy",
-      "Hair Loss Treatment",
-      "Hair Restoration",
-    ],
-  },
-  {
-    title: "Cosmetic Treatments",
-    items: [
-      "Botox",
-      "Dermal Fillers",
-      "Laser Treatments",
-      "Skin Tightening",
-    ],
-  },
+const links = [
+  ["Home", "/"],
+  ["About", "/about"],
+  ["Doctor", "/doctor"],
+  ["Treatments", "/treatments"],
+  ["Facilities", "/facilities"],
+  ["Reviews", "/testimonials"],
+  ["FAQ", "/faq"],
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const closeMobile = () => setMobileOpen(false);
 
   const navLinkClass = ({ isActive }) =>
-    `relative font-medium transition-all duration-300 ${
+    `relative font-sm transition-all duration-300 font-serif ${
       isActive
         ? "text-primary"
         : "text-gray-700 hover:text-primary"
@@ -51,302 +41,149 @@ const Navbar = () => {
   return (
     <>
       <header
-        className="
-          sticky
-          top-0
-          z-50
-          bg-white/80
-          backdrop-blur-xl
-          border-b
-          border-gray-100
-          shadow-sm
-        "
+        className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+          scrolled
+            ? "bg-white/90 shadow-[0_10px_40px_rgba(0,0,0,0.08)] backdrop-blur-2xl"
+            : "bg-white/70 backdrop-blur-xl"
+        }`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between h-24">
-
+          <div
+            className={`flex items-center justify-between transition-all duration-500 ${
+              scrolled ? "h-20" : "h-24"
+            }`}
+          >
             {/* Logo */}
-
             <Link
               to="/"
-              className="relative flex items-center justify-center w-[200px] h-28 overflow-visible"
+              className={`relative flex items-center justify-center overflow-visible transition-all duration-500 ${
+                scrolled
+                  ? "h-28 w-[200px]"
+                  : "h-32 w-[250px]"
+              }`}
             >
               <img
                 src="/logo.png"
-                alt="Skin Sanctuary"
-                className="absolute h-[200px] w-auto object-contain"
+                alt={clinic.name}
+                className={`absolute w-auto object-contain transition-all duration-500 ${
+                  scrolled
+                    ? "h-[200px]"
+                    : "h-[250px]"
+                }`}
               />
             </Link>
 
             {/* Desktop Navigation */}
-
-            <nav className="hidden lg:flex items-center gap-10">
-
-              <NavLink to="/" className={navLinkClass}>
-                Home
-              </NavLink>
-
-              <NavLink to="/about" className={navLinkClass}>
-                About
-              </NavLink>
-
-              {/* Treatments Mega Menu */}
-
-              <div className="relative group">
-
-                <button className="flex items-center gap-1 font-medium text-gray-700 hover:text-primary transition duration-300">
-                  Treatments
-                  <HiChevronDown size={18} />
-                </button>
-
-                <div
-                  className="
-                    absolute
-                    left-1/2
-                    -translate-x-1/2
-                    top-full
-                    mt-6
-                    w-[900px]
-                    rounded-3xl
-                    bg-white
-                    p-8
-                    shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-                    opacity-0
-                    invisible
-                    group-hover:opacity-100
-                    group-hover:visible
-                    transition-all
-                    duration-300
-                  "
+            <nav className="hidden items-center gap-8 lg:flex">
+              {links.map(([label, to]) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  className={navLinkClass}
                 >
-                  <div className="grid grid-cols-3 gap-10">
-
-                    {treatmentCategories.map((category) => (
-                      <div key={category.title}>
-                        <h4 className="mb-4 text-primary font-semibold">
-                          {category.title}
-                        </h4>
-
-                        <ul className="space-y-3">
-
-                          {category.items.map((item) => (
-                            <li key={item}>
-                              <Link
-                                to="/treatments"
-                                className="text-gray-600 hover:text-primary transition duration-300"
-                              >
-                                {item}
-                              </Link>
-                            </li>
-                          ))}
-
-                        </ul>
-                      </div>
-                    ))}
-
-                  </div>
-                </div>
-              </div>
-
-              <NavLink to="/doctor" className={navLinkClass}>
-                Doctor
-              </NavLink>
-
-              <NavLink to="/gallery" className={navLinkClass}>
-                Results
-              </NavLink>
-
-              <NavLink to="/testimonials" className={navLinkClass}>
-                Reviews
-              </NavLink>
-
+                  {label}
+                </NavLink>
+              ))}
             </nav>
 
-            {/* CTA Buttons */}
-
-            <div className="hidden lg:flex items-center gap-3">
-
-              <a
-                href="tel:+919440052251"
-                className="
-                  px-5
-                  py-3
-                  rounded-full
-                  border
-                  border-primary
-                  text-primary
-                  font-medium
-                  hover:bg-primary
-                  hover:text-white
-                  transition-all
-                  duration-300
-                "
-              >
-                Call Now
-              </a>
-
+            {/* Desktop CTA */}
+            <div className="hidden items-center gap-3 lg:flex font-serif">
               <Link
                 to="/contact"
-                className="
-                  px-6
-                  py-3
-                  rounded-full
-                  bg-primary
-                  text-white
-                  font-medium
-                  hover:bg-secondary
-                  transition-all
-                  duration-300
-                  shadow-lg
-                  shadow-primary/20
-                "
+                className="rounded-full border border-primary px-6 py-3 font-medium text-primary transition-all hover:bg-primary hover:text-white"
+              >
+                Contact Us
+              </Link>
+
+              <Link
+                to="/book-appointment"
+                className="rounded-full bg-primary px-7 py-3 font-medium text-white shadow-[0_10px_30px_rgba(201,167,92,0.35)] transition-all hover:-translate-y-0.5 hover:bg-secondary"
               >
                 Book Appointment
               </Link>
-
             </div>
 
             {/* Mobile Menu Button */}
-
             <button
+              type="button"
               onClick={() => setMobileOpen(true)}
               className="lg:hidden"
+              aria-label="Open menu"
             >
               <HiOutlineMenuAlt3
                 size={30}
                 className="text-primary"
               />
             </button>
-
           </div>
         </div>
       </header>
 
-      {/* Mobile Overlay */}
-
+      {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 z-[100] bg-black/50 transition-all duration-300 ${
           mobileOpen
-            ? "opacity-100 visible"
-            : "opacity-0 invisible"
+            ? "visible opacity-100"
+            : "invisible opacity-0"
         }`}
       >
         <div
-          className={`absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white shadow-2xl transition-all duration-300 ${
+          className={`absolute right-0 top-0 h-full w-[88%] max-w-sm overflow-y-auto bg-white shadow-2xl transition-transform duration-300 ${
             mobileOpen
               ? "translate-x-0"
               : "translate-x-full"
           }`}
         >
           <div className="p-6">
-
-            <div className="flex items-center justify-between mb-10">
-
+            <div className="mb-8 flex items-center justify-between">
               <img
                 src="/logo.png"
-                alt="Skin Sanctuary"
+                alt={clinic.name}
                 className="h-16 w-auto object-contain"
               />
 
               <button
-                onClick={() => setMobileOpen(false)}
+                type="button"
+                onClick={closeMobile}
+                aria-label="Close menu"
               >
                 <HiOutlineX
                   size={28}
                   className="text-primary"
                 />
               </button>
-
             </div>
 
-            <nav className="flex flex-col gap-6">
-
-              <NavLink
-                to="/"
-                onClick={() => setMobileOpen(false)}
-                className={navLinkClass}
-              >
-                Home
-              </NavLink>
-
-              <NavLink
-                to="/about"
-                onClick={() => setMobileOpen(false)}
-                className={navLinkClass}
-              >
-                About
-              </NavLink>
-
-              <NavLink
-                to="/treatments"
-                onClick={() => setMobileOpen(false)}
-                className={navLinkClass}
-              >
-                Treatments
-              </NavLink>
-
-              <NavLink
-                to="/doctor"
-                onClick={() => setMobileOpen(false)}
-                className={navLinkClass}
-              >
-                Doctor
-              </NavLink>
-
-              <NavLink
-                to="/gallery"
-                onClick={() => setMobileOpen(false)}
-                className={navLinkClass}
-              >
-                Results
-              </NavLink>
-
-              <NavLink
-                to="/testimonials"
-                onClick={() => setMobileOpen(false)}
-                className={navLinkClass}
-              >
-                Reviews
-              </NavLink>
-
+            <nav className="flex flex-col gap-5">
+              {links.map(([label, to]) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  onClick={closeMobile}
+                  className={navLinkClass}
+                >
+                  {label}
+                </NavLink>
+              ))}
             </nav>
 
-            <div className="mt-10 flex flex-col gap-3">
-
-              <a
-                href="tel:+919440052251"
-                className="
-                  w-full
-                  text-center
-                  py-3
-                  rounded-full
-                  border
-                  border-primary
-                  text-primary
-                  font-medium
-                "
-              >
-                Call Now
-              </a>
-
+            <div className="mt-8 grid gap-3">
               <Link
                 to="/contact"
-                onClick={() => setMobileOpen(false)}
-                className="
-                  w-full
-                  text-center
-                  py-3
-                  rounded-full
-                  bg-primary
-                  text-white
-                  font-medium
-                "
+                onClick={closeMobile}
+                className="rounded-full border border-primary py-3 text-center font-medium text-primary"
+              >
+                Contact Us
+              </Link>
+
+              <Link
+                to="/book-appointment"
+                onClick={closeMobile}
+                className="rounded-full bg-primary py-3 text-center font-medium text-white"
               >
                 Book Appointment
               </Link>
-
             </div>
-
           </div>
         </div>
       </div>

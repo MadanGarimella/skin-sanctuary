@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
+import { getWhatsAppUrl } from "../../config/clinic";
+
 const AppointmentCTA = () => {
   return (
     <section className="py-24">
@@ -14,9 +18,15 @@ const AppointmentCTA = () => {
             with our dermatology experts.
           </p>
 
-          <button className="mt-8 px-10 py-4 bg-white text-primary rounded-full font-semibold">
-            Book Appointment
-          </button>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link to="/book-appointment" className="rounded-full bg-white px-10 py-4 font-semibold text-primary">
+              Book Appointment
+            </Link>
+            <a href={getWhatsAppUrl()} className="inline-flex items-center gap-3 rounded-full border border-white/40 px-10 py-4 font-semibold text-white">
+              <FaWhatsapp />
+              WhatsApp Us
+            </a>
+          </div>
 
         </div>
 

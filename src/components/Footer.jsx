@@ -1,4 +1,4 @@
-import {
+﻿import {
     FaInstagram,
     FaFacebookF,
     FaLinkedinIn,
@@ -164,7 +164,7 @@ const Footer = () => {
                                 <FaMapMarkerAlt className="text-primary mt-1" />
 
                                 <p>
-                                    Hi-Tension Rd, above HDFC Bank, Sri Sai Baba Officer's Colony, Madhavapuri Colony, Sainikpuri, Hyderabad, Secunderabad, Telangana 500094
+                                    Hi-Tension Rd, above HDFC Bank, Sri Sai Baba Officer's Colony, Sainikpuri, Hyderabad, Telangana 500094
                                 </p>
 
                             </div>
@@ -179,15 +179,7 @@ const Footer = () => {
 
                             </div>
 
-                            <div className="flex gap-3">
-
-                                <FaEnvelope className="text-primary mt-1" />
-
-                                <p>
-
-                                </p>
-
-                            </div>
+                            
 
                         </div>
 
@@ -236,14 +228,14 @@ const Footer = () => {
                 >
 
                     <p className="text-gray-500 text-sm">
-                        � {new Date().getFullYear()} Skin Sanctuary.
+                        © {new Date().getFullYear()} Skin Sanctuary.
                         All Rights Reserved.
                     </p>
 
                     <div className="flex items-center gap-6">
 
                         <a
-                            href="#"
+                            href="https://www.instagram.com/"
                             className="
                 w-10
                 h-10
@@ -261,7 +253,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="#"
+                            href="https://www.facebook.com/"
                             className="
                 w-10
                 h-10
@@ -279,7 +271,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="#"
+                            href="https://www.linkedin.com/"
                             className="
                 w-10
                 h-10
@@ -300,13 +292,13 @@ const Footer = () => {
 
                     <div className="flex gap-6 text-sm text-gray-500">
 
-                        <a href="#">
+                        <Link to="/contact">
                             Privacy Policy
-                        </a>
+                        </Link>
 
-                        <a href="#">
+                        <Link to="/faq">
                             Terms & Conditions
-                        </a>
+                        </Link>
 
                     </div>
 
@@ -319,3 +311,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

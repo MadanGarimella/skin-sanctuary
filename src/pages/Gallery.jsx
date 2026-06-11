@@ -1,4 +1,5 @@
 import acne from "../assets/treatments/acne.png";
+import SEO from "../components/common/SEO";
 import pigmentation from "../assets/treatments/pigmentation.png";
 import hydrafacial from "../assets/treatments/hydrafacial.png";
 import prp from "../assets/treatments/prptreatment.png";
@@ -18,6 +19,7 @@ const results = [
 const Gallery = () => {
   return (
     <>
+      <SEO title="Results Gallery" description="Explore Skin Scanctuary treatment focus areas including acne, pigmentation, hydrafacial, PRP, hair restoration, and aesthetics." path="/gallery" />
       <section className="section-padding bg-light">
         <div className="container-custom text-center max-w-4xl">
           <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">

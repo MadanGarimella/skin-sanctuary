@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   FaArrowRight,
   FaStar,
@@ -16,7 +17,7 @@ const Hero = () => {
         className="absolute inset-0"
         style={{
           backgroundImage: `url(${heroBg})`,
-          backgroundSize: "cover",
+          backgroundSize: "99%",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
@@ -34,7 +35,7 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen">
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen mt-20">
 
           {/* Left */}
 
@@ -47,13 +48,13 @@ const Hero = () => {
               Advanced Dermatology & Aesthetic Care
             </span>
 
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-dark">
+            <h1 className="text-4xl lg:text-5xl xl:text-[60px] font-bold leading-tight text-dark">
               Healthy Skin.
               <br />
               Confident You.
             </h1>
 
-            <p className="mt-6 text-lg text-gray-600 max-w-xl">
+            <p className="mt-6 text-lg text-gray-600 max-w-[650px]">
               Personalized dermatology solutions designed to
               restore, rejuvenate, and protect your skin with
               medical precision and aesthetic excellence.
@@ -61,7 +62,8 @@ const Hero = () => {
 
             <div className="flex flex-wrap gap-4 mt-8">
 
-              <button
+              <Link
+                to="/book-appointment"
                 className="
                   bg-primary
                   text-white
@@ -81,9 +83,10 @@ const Hero = () => {
                 Book Appointment
 
                 <FaArrowRight />
-              </button>
+              </Link>
 
-              <button
+              <Link
+                to="/treatments"
                 className="
                   border
                   border-primary
@@ -98,7 +101,7 @@ const Hero = () => {
                 "
               >
                 Explore Treatments
-              </button>
+              </Link>
 
             </div>
 
@@ -126,10 +129,10 @@ const Hero = () => {
 
               <div>
                 <h3 className="text-3xl font-bold text-primary">
-                  4.9
+                  5.0
                 </h3>
 
-                <p className="text-gray-500 flex items-center gap-1">
+                <p className="text-[#FFD700] flex items-center gap-1">
                   <FaStar />
                   Rating
                 </p>
@@ -154,18 +157,7 @@ const Hero = () => {
 
             <div className="relative overflow-hidden rounded-[40px] shadow-2xl">
 
-              {/* <img
-                src="/images/doctor-hero.jpg"
-                alt="Dermatologist"
-                className="
-                  w-full
-                  h-[500px]
-                  object-cover
-                  transition-all
-                  duration-700
-                  hover:scale-110
-                "
-              /> */}
+             
 
             </div>
 

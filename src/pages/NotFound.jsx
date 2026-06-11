@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 
 const NotFound = () => {
   return (
     <section className="section-padding bg-light">
+      <SEO title="Page Not Found" description="The requested Skin Scanctuary page was not found." />
       <div className="container-custom text-center max-w-3xl">
         <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
           Page Not Found

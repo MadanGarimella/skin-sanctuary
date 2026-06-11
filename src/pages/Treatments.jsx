@@ -1,64 +1,67 @@
-import FeaturedTreatments from "../components/Home/FeaturedTreatments";
-import TechnologySection from "../components/Home/TechnologySection";
-import FAQSection from "../components/Home/FAQSection";
-import AppointmentCTA from "../components/Home/AppointmentCTA";
-
-const treatmentGroups = [
-  {
-    title: "Skin",
-    items: ["Acne care", "Pigmentation correction", "Chemical peels", "HydraFacial", "Skin brightening"],
-  },
-  {
-    title: "Hair",
-    items: ["PRP therapy", "Hair fall control", "Scalp health", "Hair restoration planning"],
-  },
-  {
-    title: "Aesthetics",
-    items: ["Botox", "Fillers", "Laser treatments", "Skin tightening"],
-  },
-];
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import SEO from "../components/common/SEO";
+import PageHero from "../components/common/PageHero";
+import CTASection from "../components/common/CTASection";
+import { treatments } from "../data/treatments";
 
 const Treatments = () => {
+  const categories = [...new Set(treatments.map((item) => item.category))];
+
   return (
     <>
-      <section className="section-padding bg-light">
-        <div className="container-custom text-center max-w-4xl">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-            Treatment Menu
-          </span>
-          <h1 className="mt-6 text-4xl md:text-6xl font-bold text-dark">
-            Dermatology, hair, and aesthetic care in one place
-          </h1>
-          <p className="mt-6 text-lg text-gray-600">
-            Explore personalized treatment options planned after a detailed consultation and skin or scalp assessment.
-          </p>
-        </div>
-      </section>
+      <SEO
+        title="Treatments"
+        description="Explore Skin Scanctuary dermatology, hair restoration, laser, hydrafacial, acne, pigmentation, anti-aging, and aesthetic treatments."
+        path="/treatments"
+      />
+      <PageHero
+        eyebrow="Treatment Menu"
+        title="Personalized dermatology, hair, laser, and aesthetic treatments"
+        description="Choose from doctor-guided treatment pathways designed around diagnosis, safety, realistic outcomes, and long-term skin confidence."
+      />
 
       <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-3 gap-6">
-          {treatmentGroups.map((group) => (
-            <div key={group.title} className="rounded-3xl border border-gray-100 bg-white p-8 shadow-[0_10px_35px_rgba(0,0,0,0.05)]">
-              <h2 className="text-2xl font-bold text-dark">{group.title} Treatments</h2>
-              <ul className="mt-6 space-y-3 text-gray-600">
-                {group.items.map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
-                    <span>{item}</span>
-                  </li>
+        <div className="container-custom space-y-14">
+          {categories.map((category) => (
+            <div key={category}>
+              <h2 className="mb-6 text-3xl font-bold text-dark">{category} Treatments</h2>
+              <div className="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+                {treatments.filter((item) => item.category === category).map((item, index) => (
+                  <motion.article
+                    key={item.slug}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)]"
+                  >
+                    <img src={item.image} alt={item.title} className="h-64 w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+                    <div className="p-7">
+                      <span className="text-sm font-semibold text-primary">{item.category}</span>
+                      <h3 className="mt-2 text-2xl font-bold text-dark">{item.title}</h3>
+                      <p className="mt-4 leading-relaxed text-gray-600">{item.short}</p>
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        <Link to={`/treatments/${item.slug}`} className="rounded-full bg-primary px-5 py-3 font-semibold text-white transition hover:bg-secondary">
+                          Learn More
+                        </Link>
+                        <Link to="/book-appointment" className="rounded-full border border-primary px-5 py-3 font-semibold text-primary transition hover:bg-primary hover:text-white">
+                          Book
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.article>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <FeaturedTreatments />
-      <TechnologySection />
-      <FAQSection />
-      <AppointmentCTA />
+      <CTASection title="Not sure which treatment is right for you?" />
     </>
   );
 };
 
 export default Treatments;
+
