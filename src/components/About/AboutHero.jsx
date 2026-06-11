@@ -41,7 +41,7 @@ const AboutHero = () => {
             transition={{ delay: 0.2 }}
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 text-sm font-medium text-primary shadow-lg shadow-primary/5 backdrop-blur-sm">
-              ✦ About Skin Scanctuary
+              ✦ About Skin Sanctuary
             </span>
           </motion.div>
 
@@ -76,7 +76,7 @@ const AboutHero = () => {
             transition={{ delay: 0.5 }}
             className="mx-auto mt-10 max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl"
           >
-            At Skin Scanctuary, we combine advanced dermatological
+            At Skin Sanctuary, we combine advanced dermatological
             science, aesthetic innovation, and personalized patient care
             to deliver exceptional outcomes. Every treatment is guided by
             clinical expertise, ethical practice, and a commitment to

@@ -8,6 +8,7 @@ import {
     FaEnvelope,
     FaStar,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -36,7 +37,7 @@ const Footer = () => {
                         >
                             <img
                                 src="/logo.png"
-                                alt="Skin Scanctuary"
+                                alt="Skin Sanctuary"
                                 className="absolute h-[200px] w-auto object-contain"
                             />
                         </div>
@@ -79,48 +80,48 @@ const Footer = () => {
                         <ul className="space-y-4 text-gray-400">
 
                             <li>
-                                <a
-                                    href="/"
+                                <Link
+                                    to="/"
                                     className="hover:text-primary transition"
                                 >
                                     Home
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
-                                <a
-                                    href="/about"
+                                <Link
+                                    to="/about"
                                     className="hover:text-primary transition"
                                 >
                                     About Us
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
-                                <a
-                                    href="/treatments"
+                                <Link
+                                    to="/treatments"
                                     className="hover:text-primary transition"
                                 >
                                     Treatments
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
-                                <a
-                                    href="/doctor"
+                                <Link
+                                    to="/doctor"
                                     className="hover:text-primary transition"
                                 >
                                     Doctor Profile
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
-                                <a
-                                    href="/contact"
+                                <Link
+                                    to="/contact"
                                     className="hover:text-primary transition"
                                 >
                                     Contact
-                                </a>
+                                </Link>
                             </li>
 
                         </ul>
@@ -192,7 +193,8 @@ const Footer = () => {
 
                         {/* CTA */}
 
-                        <button
+                        <a
+                            href="https://wa.me/919440052251"
                             className="
                 mt-8
                 flex
@@ -209,7 +211,7 @@ const Footer = () => {
                         >
                             <FaWhatsapp />
                             WhatsApp Us
-                        </button>
+                        </a>
 
                     </div>
 
@@ -234,7 +236,7 @@ const Footer = () => {
                 >
 
                     <p className="text-gray-500 text-sm">
-                        Â© {new Date().getFullYear()} Skin Scanctuary.
+                        © {new Date().getFullYear()} Skin Sanctuary.
                         All Rights Reserved.
                     </p>
 

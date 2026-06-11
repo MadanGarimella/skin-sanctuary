@@ -60,7 +60,7 @@ const CoreValues = () => {
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-gray-600">
-            At Skin Scanctuary, our commitment extends beyond treatments.
+            At Skin Sanctuary, our commitment extends beyond treatments.
             These principles shape every consultation, recommendation,
             and patient experience.
           </p>

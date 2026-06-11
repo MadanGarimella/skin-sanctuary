@@ -73,7 +73,7 @@ const Navbar = () => {
             >
               <img
                 src="/logo.png"
-                alt="Skin Scanctuary"
+                alt="Skin Sanctuary"
                 className="absolute h-[200px] w-auto object-contain"
               />
             </Link>
@@ -167,7 +167,7 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center gap-3">
 
               <a
-                href="tel:+919999999999"
+                href="tel:+919440052251"
                 className="
                   px-5
                   py-3
@@ -185,7 +185,8 @@ const Navbar = () => {
                 Call Now
               </a>
 
-              <button
+              <Link
+                to="/contact"
                 className="
                   px-6
                   py-3
@@ -201,7 +202,7 @@ const Navbar = () => {
                 "
               >
                 Book Appointment
-              </button>
+              </Link>
 
             </div>
 
@@ -243,7 +244,7 @@ const Navbar = () => {
 
               <img
                 src="/logo.png"
-                alt="Skin Scanctuary"
+                alt="Skin Sanctuary"
                 className="h-16 w-auto object-contain"
               />
 
@@ -313,7 +314,7 @@ const Navbar = () => {
             <div className="mt-10 flex flex-col gap-3">
 
               <a
-                href="tel:+919999999999"
+                href="tel:+919440052251"
                 className="
                   w-full
                   text-center
@@ -328,9 +329,12 @@ const Navbar = () => {
                 Call Now
               </a>
 
-              <button
+              <Link
+                to="/contact"
+                onClick={() => setMobileOpen(false)}
                 className="
                   w-full
+                  text-center
                   py-3
                   rounded-full
                   bg-primary
@@ -339,7 +343,7 @@ const Navbar = () => {
                 "
               >
                 Book Appointment
-              </button>
+              </Link>
 
             </div>
 

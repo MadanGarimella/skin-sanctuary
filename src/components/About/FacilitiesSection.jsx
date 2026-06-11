@@ -58,7 +58,7 @@ const FacilitiesSection = () => {
         >
 
           <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm">
-            ✦ Inside Skin Scanctuary
+            ✦ Inside Skin Sanctuary
           </span>
 
           <h2 className="mt-8 text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
@@ -69,7 +69,7 @@ const FacilitiesSection = () => {
           </h2>
 
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-gray-300">
-            Every space within Skin Scanctuary has been thoughtfully
+            Every space within Skin Sanctuary has been thoughtfully
             designed to create an environment where advanced
             dermatological care meets comfort, safety, and trust.
           </p>
@@ -216,7 +216,7 @@ const FacilitiesSection = () => {
         >
 
           <p className="text-2xl font-light leading-relaxed text-white md:text-3xl lg:text-4xl">
-            “Every detail within Skin Scanctuary has been carefully
+            “Every detail within Skin Sanctuary has been carefully
             designed to create an environment where advanced
             dermatological care meets comfort, trust, and excellence.”
           </p>

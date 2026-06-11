@@ -112,7 +112,7 @@ const TechnologySection = () => {
               mx-auto
             "
           >
-            At Skin Scanctuary, we combine medical expertise with
+            At Skin Sanctuary, we combine medical expertise with
             modern dermatology technology to provide safer,
             faster, and more effective treatments for skin,
             hair, laser, and aesthetic concerns.

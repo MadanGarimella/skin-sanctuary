@@ -1,11 +1,11 @@
-import AboutHero from "../components/about/AboutHero";
-import ClinicStory from "../components/about/ClinicStory";
-import MissionVision from "../components/about/MissionVision";
-import DoctorSpotlight from "../components/about/DoctorSpotlight";
-import CoreValues from "../components/about/CoreValues";
-import FacilitiesSection from "../components/about/FacilitiesSection";
-// import CertificationsSection from "../components/about/CertificationsSection";
-import AboutCTA from "../components/about/AboutCTA";
+import AboutHero from "../components/About/AboutHero";
+import ClinicStory from "../components/About/ClinicStory";
+import MissionVision from "../components/About/MissionVision";
+import DoctorSpotlight from "../components/About/DoctorSpotlight";
+import CoreValues from "../components/About/CoreValues";
+import FacilitiesSection from "../components/About/FacilitiesSection";
+// import CertificationsSection from "../components/About/CertificationsSection";
+import AboutCTA from "../components/About/AboutCTA";
 
 const About = () => {
   return (

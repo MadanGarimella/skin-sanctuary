@@ -67,7 +67,7 @@ const WhyChooseUs = () => {
               font-medium
             "
           >
-            Why Choose Skin Scanctuary
+            Why Choose Skin Sanctuary
           </span>
 
           <h2

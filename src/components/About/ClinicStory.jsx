@@ -57,7 +57,7 @@ const ClinicStory = () => {
               <div className="relative z-10">
 
                 <p className="text-xl lg:text-2xl leading-relaxed text-gray-700 font-light">
-                  At <span className="font-semibold text-dark">Skin Scanctuary</span>,
+                  At <span className="font-semibold text-dark">Skin Sanctuary</span>,
                   we believe healthy skin is more than aesthetics—
                   it is confidence, wellness, and self-assurance.
                 </p>

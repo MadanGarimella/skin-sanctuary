@@ -28,7 +28,7 @@ const MissionVision = () => {
           </h2>
 
           <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-            Every decision at Skin Scanctuary is driven by our
+            Every decision at Skin Sanctuary is driven by our
             commitment to exceptional patient care, innovation,
             and ethical dermatological excellence.
           </p>

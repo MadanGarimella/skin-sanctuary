@@ -92,7 +92,7 @@ const TestimonialsSection = () => {
 
           <p className="mt-6 text-gray-600 text-lg">
             Real experiences shared by patients who trusted
-            Skin Scanctuary with their skin, hair, and aesthetic concerns.
+            Skin Sanctuary with their skin, hair, and aesthetic concerns.
           </p>
         </motion.div>
 
