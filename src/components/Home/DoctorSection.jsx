@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   FaAward,
   FaUserMd,
-  FaStar,
   FaArrowRight,
 } from "react-icons/fa";
 
