@@ -32,44 +32,50 @@ const Navbar = () => {
   const closeMobile = () => setMobileOpen(false);
 
   const navLinkClass = ({ isActive }) =>
-    `relative font-sm transition-all duration-300 font-serif ${
-      isActive
-        ? "text-primary"
-        : "text-gray-700 hover:text-primary"
+    `relative text-sm transition-all duration-300 font-serif ${isActive
+      ? "text-primary"
+      : "text-gray-700 hover:text-primary"
     }`;
+
+  const handleNavClick = () => {
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    });
+  };
 
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
-          scrolled
-            ? "bg-white/90 shadow-[0_10px_40px_rgba(0,0,0,0.08)] backdrop-blur-2xl"
-            : "bg-white/70 backdrop-blur-xl"
-        }`}
+        className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${scrolled
+          ? "bg-white/90 shadow-[0_10px_40px_rgba(0,0,0,0.08)] backdrop-blur-2xl"
+          : "bg-white/70 backdrop-blur-xl"
+          }`}
       >
         <div className="container-custom">
           <div
-            className={`flex items-center justify-between transition-all duration-500 ${
-              scrolled ? "h-20" : "h-24"
-            }`}
+            className={`flex items-center justify-between transition-all duration-500 ${scrolled ? "h-20" : "h-24"
+              }`}
           >
             {/* Logo */}
             <Link
               to="/"
-              className={`relative flex items-center justify-center overflow-visible transition-all duration-500 ${
-                scrolled
-                  ? "h-28 w-[200px]"
-                  : "h-32 w-[250px]"
-              }`}
+              onClick={handleNavClick}
+              className={`relative flex items-center justify-center overflow-visible transition-all duration-500 ${scrolled
+                ? "h-28 w-[200px]"
+                : "h-32 w-[250px]"
+                }`}
             >
               <img
                 src="/logo.png"
                 alt={clinic.name}
-                className={`absolute w-auto object-contain transition-all duration-500 ${
-                  scrolled
-                    ? "h-[200px]"
-                    : "h-[250px]"
-                }`}
+                className={`absolute w-auto object-contain transition-all duration-500 ${scrolled
+                  ? "h-[200px]"
+                  : "h-[250px]"
+                  }`}
               />
             </Link>
 
@@ -79,6 +85,7 @@ const Navbar = () => {
                 <NavLink
                   key={to}
                   to={to}
+                  onClick={handleNavClick}
                   className={navLinkClass}
                 >
                   {label}
@@ -121,18 +128,16 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-[100] bg-black/50 transition-all duration-300 ${
-          mobileOpen
-            ? "visible opacity-100"
-            : "invisible opacity-0"
-        }`}
+        className={`fixed inset-0 z-[100] bg-black/50 transition-all duration-300 ${mobileOpen
+          ? "visible opacity-100"
+          : "invisible opacity-0"
+          }`}
       >
         <div
-          className={`absolute right-0 top-0 h-full w-[88%] max-w-sm overflow-y-auto bg-white shadow-2xl transition-transform duration-300 ${
-            mobileOpen
-              ? "translate-x-0"
-              : "translate-x-full"
-          }`}
+          className={`absolute right-0 top-0 h-full w-[88%] max-w-sm overflow-y-auto bg-white shadow-2xl transition-transform duration-300 ${mobileOpen
+            ? "translate-x-0"
+            : "translate-x-full"
+            }`}
         >
           <div className="p-6">
             <div className="mb-8 flex items-center justify-between">
@@ -144,7 +149,10 @@ const Navbar = () => {
 
               <button
                 type="button"
-                onClick={closeMobile}
+                onClick={() => {
+                  closeMobile();
+                  handleNavClick();
+                }}
                 aria-label="Close menu"
               >
                 <HiOutlineX

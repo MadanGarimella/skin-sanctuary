@@ -35,7 +35,7 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen mt-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen">
 
           {/* Left */}
 

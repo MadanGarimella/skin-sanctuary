@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/common/WhatsAppButton";
@@ -26,10 +26,12 @@ const Loading = () => (
 
 function App() {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-[85vh] bg-white overflow-x-hidden">
+      <ScrollToTop />
       <Navbar />
 
       <Suspense fallback={<Loading />}>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
